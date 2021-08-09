@@ -40,6 +40,14 @@
 |--- |--- |--- |--- |
 | Strings | Strings | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Strings/strings.cpp) |
 | Strings | StringStream | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/String_streams/string_streams.cpp) |
-| Strings | Attribute Parser | 35 | [Solution]() |
+| Strings | Attribute Parser | 35 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Attribute_Parser/attribute_parser.cpp) |
 
 --- 
+
+### :information_source: Classes :
+
+| Subdomainei | Title | Points | Source |
+|--- |--- |--- |--- |
+| Classes | Struct | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Struct/struct.cpp) |
+
+---
