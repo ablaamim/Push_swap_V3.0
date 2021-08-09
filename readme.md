@@ -33,3 +33,13 @@
 | Intro | Variable Sized Arrays | 30 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Variable_Sized_Array/variable_sized_arrays.cpp) |
 
 ---
+
+### :information_source: Strings :
+
+| Subdomaine| Title | Points | Source |
+|--- |--- |--- |--- |
+| Strings | Strings | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Strings/strings.cpp) |
+| Strings | StringStream | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/String_streams/string_streams.cpp) |
+| Strings | Attribute Parser | 35 | [Solution]() |
+
+--- 
