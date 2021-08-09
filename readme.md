@@ -9,12 +9,12 @@
 
 | Subdomaine| Title | Points | Source |
 |--- |--- |--- |--- |
-| Intro | Say "Hello, World!" With C++ | 5 | |
-| Intro | Say "Hello, World!" With C++ | 5 | |
-| Intro | Basic Data Types | 10 | |
-| Intro | Conditional Statements| 10 | |
-| Intro | For Loop | 10 | |
-| Intro | Functions | 10 | |
-| Intro | Pointer | 10 | |
-| Intro | Arrays Introduction | 10 | |
-| Intro | Variable Sized Arrays | 30 | |
+| Intro | Say "Hello, World!" With C++ | 5 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Hello_World/Hello_World.cpp)|
+| Intro | Input/Output | 5 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Input_Output/input_output.cpp)|
+| Intro | Basic Data Types | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Basic_Data_Types/basic_data_types.cpp) |
+| Intro | Conditional Statements| 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Conditional_Statements/conditional_statements.cpp) |
+| Intro | For Loop | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Loops/loops.cpp)|
+| Intro | Functions | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Functions/functions.cpp) |
+| Intro | Pointer | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Pointers/pointers.cpp) |
+| Intro | Arrays Introduction | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Arrays/arrays.cpp) |
+| Intro | Variable Sized Arrays | 30 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Variable_Sized_Array/variable_sized_arrays.cpp) |
