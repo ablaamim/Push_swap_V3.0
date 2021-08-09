@@ -36,7 +36,7 @@
 
 ### :information_source: Strings :
 
-| Subdomaine| Title | Points | Source |
+| Subdomainei | Title | Points | Source |
 |--- |--- |--- |--- |
 | Strings | Strings | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Strings/strings.cpp) |
 | Strings | StringStream | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/String_streams/string_streams.cpp) |
