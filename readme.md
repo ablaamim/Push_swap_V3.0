@@ -51,5 +51,8 @@
 | Classes | Struct | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Struct/struct.cpp) |
 | Classes | Class  | 10  | [Solution]() |
 | Classes | Classes and Objects | 10 | [Solution]() |
+| Classes | Exceptional Server | 30 | [Solution]() |
+| Classes | Virtual Function | 40 | [Solution]() |
+| Classes | Abstract Classes Polymorphism | [Solution]() |
 
 ---
