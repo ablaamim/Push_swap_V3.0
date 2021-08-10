@@ -36,7 +36,7 @@
 
 ### :information_source: Strings :
 
-| Subdomainei | Title | Points | Source |
+| Subdomaine | Title | Points | Source |
 |--- |--- |--- |--- |
 | Strings | Strings | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Strings/strings.cpp) |
 | Strings | StringStream | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/String_streams/string_streams.cpp) |
@@ -46,8 +46,9 @@
 
 ### :information_source: Classes :
 
-| Subdomainei | Title | Points | Source |
+| Subdomaine | Title | Points | Source |
 |--- |--- |--- |--- |
 | Classes | Struct | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Struct/struct.cpp) |
+| Classes | Class  | 10  | [Solution]() |
 
 ---
