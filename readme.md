@@ -50,5 +50,6 @@
 |--- |--- |--- |--- |
 | Classes | Struct | 10 | [Solution](https://github.com/alaamimi/Cpp_HackerRank/blob/master/Struct/struct.cpp) |
 | Classes | Class  | 10  | [Solution]() |
+| Classes | Classes and Objects | 10 | [Solution]() |
 
 ---
