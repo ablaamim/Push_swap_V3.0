@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_output.cpp                                   :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: alaamimi <alaamimi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 20:26:26 by alaamimi          #+#    #+#             */
-/*   Updated: 2021/08/07 20:29:07 by alaamimi         ###   ########.fr       */
+/*   Created: 2022/03/06 15:11:02 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/03/06 15:11:36 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-using namespace std;
+#include "../includes/push_swap.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	int	nb1;
-	int nb2;
-	int nb3;
-	int sum;
-
-	cin>> nb1 >> nb2 >> nb3;
-	sum = nb1 + nb2 + nb3;
-	cout<<sum<<endl;
-	return (0);
+	return (EXIT_SUCCESS);
 }
