@@ -5,41 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 14:58:32 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/03/06 20:29:06 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/03/25 11:15:58 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/03/25 11:41:22 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-
-# include <stdlib.h>
 # include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
 
-typedef struct s_node
+typedef struct s_list
 {
-	int		nbr;
-	int		index;
-	void	*next;
-}	t_node;
+	int				number;
+	struct s_list	*next;
+}	t_list;
 
 typedef struct s_stack
 {
-	t_node	head;
+	t_list	*list;
 	size_t	size;
+	size_t	range;
+	int		order;
 }	t_stack;
 
-typedef	struct s_stacks
+typedef struct s_data
 {
-	t_stack	a;
-	t_stack	b;
-}	t_stacks;
-
-char	**ft_merge_arguments(int argc, char **argv);
-char	*ft_strdup(char *str);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *s1,char *s2);
-char	*ft_strjoin_and_free(char *s1, char *s2);
-char	**ft_split(char *s, char c);
+	t_stack	*a;
+	t_stack	*b;
+	char	**args;
+}	t_data;
 
 #endif

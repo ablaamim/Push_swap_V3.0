@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/06 15:11:02 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/03/06 18:34:47 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/03/25 11:15:12 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/03/25 11:59:17 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	main(int argc, char **argv)
 {
-	char	**split_argvalues;
+	t_data	*data;
 
-	split_argvalues = ft_merge_arguments(argc, argv);
+	data = NULL;
+	if (argc - 1 == 0x0)
+		return (EXIT_FAILURE);
+	data = ft_data_initializer(argc, argv);
 	return (EXIT_SUCCESS);
 }
