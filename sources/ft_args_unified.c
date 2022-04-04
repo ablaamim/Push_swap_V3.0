@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:33:46 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/03 15:39:42 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 14:41:33 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,18 @@ char	**ft_args_unified(int argc, char **argv)
 	char	*string;
 	char	*tmp;
 	int		i;
+	int		param;
 
+	param = 0x0;
+	while (argv[param])
+	{
+		if (!ft_strcmp(argv[param], ""))
+		{
+			write(2, "Error\n", 6);
+			exit (EXIT_FAILURE);
+		}
+		param++;
+	}
 	string = ft_strdup("");
 	if (!string)
 		exit (EXIT_FAILURE);

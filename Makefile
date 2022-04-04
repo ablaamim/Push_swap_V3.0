@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/03 15:19:10 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/04 14:49:16 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ HEADER = ./includes/push_swap.h
 SRC = ./sources/main.c \
 	  ./sources/ft_args_unified.c \
 	  ./sources/lib_utils.c \
-	  ./sources/ft_split_and_array_free.c 
+	  ./sources/ft_split_and_array_free.c \
+	  ./sources/ft_parser.c \
+	  ./sources/lib_utils_1.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 

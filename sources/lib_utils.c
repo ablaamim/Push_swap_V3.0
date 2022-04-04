@@ -6,16 +6,11 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:37:01 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/03 15:21:42 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 13:32:40 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
 
 void	ft_putstr(char *str)
 {
@@ -114,5 +109,7 @@ char	*ft_strjoin_and_free(char *s1, char *s2)
 		i++;
 	}
 	joined[j] = '\0';
+	free(s1);
+	free(s2);
 	return (joined);
 }

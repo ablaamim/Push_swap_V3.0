@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/03 15:40:33 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 14:42:16 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 /*
  * Parsing functions
@@ -33,5 +34,7 @@ void	ft_putstr(char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_strjoin_and_free(char *s1, char *s2);
 char	**ft_split(char const *s, char c);
-
+int		ft_isdigit(int c);
+int		ft_atoi(char *str);
+int		ft_strcmp(char *s1, char *s2);
 #endif
