@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/04 14:49:16 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/04 17:37:45 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,12 @@ SRC = ./sources/main.c \
 	  ./sources/lib_utils.c \
 	  ./sources/ft_split_and_array_free.c \
 	  ./sources/ft_parser.c \
-	  ./sources/lib_utils_1.c
+	  ./sources/lib_utils_1.c \
+	  ./sources/lib_mem_utils.c \
+	  ./sources/exit.c \
+	  ./sources/ft_printf.c \
+	  ./sources/debug.c \
+	  ./sources/ft_stacks_constructor.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 
