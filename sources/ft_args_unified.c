@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:33:46 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 14:41:33 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:48:30 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,36 +27,35 @@ void	ft_arguments_validator(int argc, char **argv)
 	}
 }
 
+void	ft_is_empty(int param, char **argv)
+{
+	if (!ft_strcmp(argv[param], ""))
+	{
+		write(1, "Error\n", 6);
+		exit (EXIT_FAILURE);
+	}
+}
+
 char	**ft_args_unified(int argc, char **argv)
 {
 	char	**splited_args;
 	char	*string;
 	char	*tmp;
-	int		i;
 	int		param;
+	int		i;
 
+	i = 0x1;
 	param = 0x0;
 	while (argv[param])
 	{
-		if (!ft_strcmp(argv[param], ""))
-		{
-			write(2, "Error\n", 6);
-			exit (EXIT_FAILURE);
-		}
+		ft_is_empty(param, argv);
 		param++;
 	}
 	string = ft_strdup("");
-	if (!string)
-		exit (EXIT_FAILURE);
-	i = 0x1;
 	while (i < argc)
 	{
 		tmp = ft_strjoin(argv[i], " ");
-		if (!tmp)
-			exit(EXIT_FAILURE);
 		string = ft_strjoin_and_free(string, tmp);
-		if (!string)
-			exit(EXIT_FAILURE);
 		i++;
 	}
 	splited_args = ft_split(string, ' ');

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:48:45 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 17:22:00 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:52:17 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	ft_stacks_constructor(char	**argv, t_stacks *stacks)
 {
 	t_node	*new_node;
 
-	stacks->a = (t_stack) {0};
-	stacks->b = (t_stack) {0};
+	stacks->a = (t_stack){0};
+	stacks->b = (t_stack){0};
 	while (argv[stacks->a.size])
 	{
 		new_node = ft_create_node(ft_atoi(argv[stacks->a.size]));

@@ -6,17 +6,18 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 17:37:21 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:31:54 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdbool.h>
+# include <stdarg.h>
+# define HEX "0123456789abcdef"
 
 typedef struct s_node
 {

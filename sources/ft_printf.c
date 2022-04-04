@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:22:13 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 17:28:14 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:51:03 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,23 +31,29 @@ int	ft_putstr_printf(char *str)
 		len += ft_putchar_printf(*str++);
 	return (len);
 }
-#define hex "0123456789abcdef"
+
 int	ft_putnbr_printf(long long nb, int base)
 {
-	int len = 0x0;
+	int	len;
+
+	len = 0x0;
 	if (nb < 0)
 	{
 		nb = -nb;
-		len+=ft_putchar_printf('-')
-	;}
+		len += ft_putchar_printf('-');
+	}
 	if (nb >= base)
 		len += ft_putnbr_printf(nb / base, base);
-	len += ft_putchar_printf(hex[nb % base]);
+	len += ft_putchar_printf(HEX[nb % base]);
 	return (len);
 }
+
 int	ft_vaprintf(va_list ap, const char *fmt)
 {
-	int len = 0x0; char c;
+	int		len;
+	char	c;
+
+	len = 0x0;
 	while (*fmt)
 	{
 		c = *fmt++;
@@ -59,7 +65,7 @@ int	ft_vaprintf(va_list ap, const char *fmt)
 			if (c == 's')
 				len += ft_putstr_printf(va_arg(ap, char *));
 			if (c == 'd')
-				len+=ft_putnbr_printf((long long)va_arg(ap, int), 10);
+				len += ft_putnbr_printf((long long)va_arg(ap, int), 10);
 		}
 	}
 	return (len);
@@ -67,8 +73,8 @@ int	ft_vaprintf(va_list ap, const char *fmt)
 
 int	ft_printf(const char *fmt, ...)
 {
-	int len;
-	va_list ap;
+	int		len;
+	va_list	ap;
 
 	len = 0x0;
 	va_start(ap, fmt);

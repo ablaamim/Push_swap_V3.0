@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:07:00 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 17:14:18 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:32:31 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_stack_free(t_node **lst, int size)
 {
 	t_node	*to_free;
-	int	i;
+	int		i;
 
 	to_free = *lst;
 	if (!lst || *lst)

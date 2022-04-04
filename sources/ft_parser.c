@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:40:56 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 14:47:08 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:49:41 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ bool	ft_parser(char **argv)
 		return (false);
 	if (!ft_is_min_max(argv))
 		return (false);
-
 	if (!ft_duplicated_param(argv))
 		return (false);
 	return (true);

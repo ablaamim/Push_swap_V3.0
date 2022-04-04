@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 13:37:01 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 13:32:40 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:55:55 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,14 +53,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	int		i;
 	int		j;
 	char	*joined;
-	int		lens1;
-	int		lens2;
 
-	if (!s1 || !s2)
-		return (0x0);
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	joined = (char *) malloc (sizeof (char) * (lens1 + lens2 + 1));
+	joined = (char *) malloc (sizeof (char) * (ft_strlen(s1) + ft_strlen(s2) \
+				+ 1));
 	if (!joined)
 		return (0x0);
 	i = 0x0;
@@ -76,7 +71,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		joined[j++] = s2[i];
 		i++;
 	}
-	joined[j] = '\0';;
+	joined[j] = '\0';
 	return (joined);
 }
 
@@ -85,14 +80,9 @@ char	*ft_strjoin_and_free(char *s1, char *s2)
 	char	*joined;
 	int		i;
 	int		j;
-	int		lens1;
-	int		lens2;
 
-	if (!s1 || !s2)
-		return (0x0);
-	lens1 = ft_strlen(s1);
-	lens2 = ft_strlen(s2);
-	joined = (char *) malloc (sizeof(char) * (lens1 + lens2 + 1));
+	joined = (char *) malloc (sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) \
+				+ 1));
 	if (!joined)
 		return (0x0);
 	i = 0x0;

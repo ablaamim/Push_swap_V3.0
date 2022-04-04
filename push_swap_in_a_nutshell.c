@@ -6,13 +6,37 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:44:44 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 16:35:09 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:28:58 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdarg.h>
+
+#define hex "0123456789abcdef"
+
+typedef struct s_node
+{
+	int		nbr;
+	int		index;
+	int		keep_a;
+	void	*next;
+}	t_node;
+
+typedef struct s_stack
+{
+	t_node	*head;
+	int		size;
+	bool	markup_head;
+}	t_stack;
+
+typedef struct s_stacks
+{
+	t_stack	a;
+	t_stack	b;
+}	t_stacks;
 
 int	ft_strlen(char *str)
 {
@@ -44,6 +68,7 @@ char	*ft_strdup(char *str)
 	return (dup);
 }
 
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*joined;
@@ -69,6 +94,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0x0;
 	while (s2[i])
 	{
+
 		joined[j++] = s2[i];
 		i++;
 	}
@@ -140,6 +166,7 @@ static char	*ft_make_words(char *word, char const *s, int j, int word_ln)
 	return (word);
 }
 
+
 static char	**ft_split_words(char **res, char const *s, char c, int word_ct)
 {
 	int	i;
@@ -159,6 +186,7 @@ static char	**ft_split_words(char **res, char const *s, char c, int word_ct)
 			word_ln++;
 		}
 		res[i] = (char *)malloc(sizeof(char) * (word_ln + 1));
+
 		if (!res[i])
 			return (NULL);
 		ft_make_words (res[i], s, j, word_ln);
@@ -303,6 +331,7 @@ bool	ft_check_range(char *str, char *limit)
 	return (true);
 }
 
+
 bool	ft_is_min_max(char **argv)
 {
 	int		param;
@@ -321,6 +350,7 @@ bool	ft_is_min_max(char **argv)
 	}
 	return (true);
 }
+
 
 int	ft_atoi(char *str)
 {
@@ -391,21 +421,6 @@ void	ft_arguments_validator(int argc, char **argv)
 	}
 }
 
-void	ft_putnbr(int n)
-{
-	long	nbr;
-
-	nbr = n;
-	if (nbr < 0)
-	{
-		nbr *= -1;
-		write(1, "-", 1);
-	}
-	if (nbr > 9)
-		ft_putnbr(nbr / 10);
-	write(1, &"0123456789"[nbr % 10], 1);
-}
-
 void	ft_putchar(char c)
 {
 	write(1, &c, 1);
@@ -421,6 +436,7 @@ void	ft_print_args(char **argv)
 {
 	int	param;
 
+
 	param = 0x0;
 	while (argv[param])
 	{
@@ -430,16 +446,270 @@ void	ft_print_args(char **argv)
 	}
 }
 
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	size_t			i;
+	unsigned char	*pd;
+	unsigned char	*ps;
+
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	if (dst == src)
+		return (dst);
+	i = 0;
+	pd = (unsigned char *) dst;
+	ps = (unsigned char *) src;
+	while (n > 0)
+	{
+		pd[i] = ps[i];
+		i++;
+		n--;
+	}
+	return (dst);
+}
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	size_t			i;
+	unsigned char	*dstc;
+	unsigned char	*srcc;
+
+	if (dst == NULL && src == NULL)
+		return (NULL);
+	dstc = (unsigned char *)dst;
+	srcc = (unsigned char *)src;
+	i = 1;
+	if (srcc < dstc)
+	{
+		while (i <= len)
+		{
+			dstc[len - i] = srcc[len - i];
+			i++;
+		}
+	}
+	else
+		ft_memcpy(dstc, srcc, len);
+	return (dst);
+}
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((unsigned char *)s)[i] = c;
+		i++;
+	}
+	return (s);
+}
+
+void	ft_bzero(void *s, size_t n)
+{
+	ft_memset(s, '\0', n);
+}
+
+void	*ft_calloc(size_t count, size_t size)
+{
+	void	*ptr;
+
+	ptr = malloc(count * size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, (count * size));
+	return (ptr);
+}
+
+t_node	*ft_create_node(int numb)
+{
+	t_node	*elem;
+
+	elem = ft_calloc(0x1, sizeof(t_node));
+	if (!elem)
+		return (0x0);
+	elem->nbr = numb;
+	elem->next = NULL;
+	return (elem);
+}
+
+void	ft_stack_free(t_node **lst, int size)
+{
+	t_node	*to_free;
+	int	i;
+
+	to_free = *lst;
+	if (!lst || *lst)
+		return ;
+	i = 0x0;
+	while (i < size)
+	{
+		*lst = to_free->next;
+		free(to_free);
+		to_free = *lst;
+		i++;
+	}
+	*lst = NULL;
+}
+
+void	ft_clear_stacks(t_stacks *stacks)
+{
+	ft_stack_free(&stacks->a.head, stacks->a.size);
+	ft_stack_free(&stacks->b.head, stacks->a.size);
+}
+
+void	exit_program(t_stacks *stacks)
+{
+	write(2, "Error\n", 6);
+	ft_clear_stacks(stacks);
+	exit(EXIT_FAILURE);
+}
+
+void	ft_nodeadd_back(t_node **lst, t_node *new)
+{
+	t_node	*tmp;
+
+	tmp = *lst;
+	if (!new)
+		return ;
+	if (!*lst)
+		*lst = new;
+	else
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+}
+
+void	ft_stacks_constructor(char **argv, t_stacks *stacks)
+{
+	t_node	*new_node;
+
+	stacks->a = (t_stack) {0};
+	stacks->b = (t_stack) {0};
+	while (argv[stacks->a.size])
+	{
+		new_node = ft_create_node(ft_atoi(argv[stacks->a.size]));
+		if (!new_node)
+			exit_program(stacks);
+		ft_nodeadd_back(&stacks->a.head, new_node);
+		(stacks->a.size)++;
+	}
+}
+
+int	ft_putchar_printf(char c)
+{
+	return (write(1, &c, 1));
+}
+
+int	ft_putstr_printf(char *str)
+{
+	int	len;
+
+	len = 0x0;
+	if (str == NULL)
+	{
+		len += write(1, "(null)", 6);
+		return (len);
+	}
+	while (*str)
+		len += ft_putchar_printf(*str++);
+	return (len);
+}
+
+int	ft_putnbr_printf(long long nb, int base)
+{
+	int len = 0x0;
+	if (nb < 0)
+	{
+		nb = -nb;
+		len+=ft_putchar_printf('-')
+	;}
+	if (nb >= base)
+		len += ft_putnbr_printf(nb / base, base);
+	len += ft_putchar_printf(hex[nb % base]);
+	return (len);
+}
+int	ft_vaprintf(va_list ap, const char *fmt)
+{
+	int len = 0x0; char c;
+	while (*fmt)
+	{
+		c = *fmt++;
+		if (c != '%')
+			len += ft_putchar_printf(c);
+		else
+		{
+			c = *fmt++;
+			if (c == 's')
+				len += ft_putstr_printf(va_arg(ap, char *));
+			if (c == 'd')
+				len+=ft_putnbr_printf((long long)va_arg(ap, int), 10);
+		}
+	}
+	return (len);
+}
+
+int	ft_printf(const char *fmt, ...)
+{
+	int len;
+	va_list ap;
+
+	len = 0x0;
+	va_start(ap, fmt);
+	len += ft_vaprintf(ap, fmt);
+	va_end(ap);
+	return (len);
+}
+
+void	print_stacks(t_stacks stacks)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("\nsize:\t%d\t%d\n-----\nstack:", stacks.a.size, stacks.b.size);
+	while (i < stacks.a.size || i < stacks.b.size)
+	{
+		if (i < stacks.a.size)
+		{
+			ft_printf("\t%d", stacks.a.head->nbr);
+			if (stacks.a.head->next)
+				stacks.a.head = stacks.a.head->next;
+		}
+		else
+			ft_printf("\t");
+		if (i < stacks.b.size)
+		{
+			ft_printf("\t%d", stacks.b.head->nbr);
+			if (stacks.b.head->next)
+				stacks.b.head = stacks.b.head->next;
+		}
+		ft_printf("\n");
+		i++;
+	}
+	ft_printf("\t_\t_\n\ta\tb\n> ");
+}
+
 int	main(int argc, char **argv)
 {
-	char	**splited_argv;
+	char		**splited_argv;
+	t_stacks	stacks;
 
 	splited_argv = ft_args_unified(argc, argv);
 	ft_arguments_validator(argc, splited_argv);
-	ft_putstr("****************************************\n");
+	ft_putstr("******************************************\n");
 	ft_putstr("         Weclome to push_swap           \n");
-	ft_putstr("****************************************\n\n");
-	ft_putstr("Arguments you entered are : \n");
+	ft_putstr("******************************************\n\n");
+	ft_putstr("------------------------------------------\n");
+	ft_putstr("        Arguments you entered are : \n");
+	ft_putstr("------------------------------------------\n");
 	ft_print_args(splited_argv);
+	ft_stacks_constructor(splited_argv, &stacks);
+	ft_putstr("------------------------------------------\n");
+	ft_putstr("          Stack constructor : \n");
+	ft_putstr("------------------------------------------\n");
+	print_stacks(stacks);
+	ft_putstr("\n------------------------------------------\n");
 	return (EXIT_SUCCESS);
 }

@@ -6,13 +6,13 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 14:20:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/03 15:20:24 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/04 20:51:38 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_array_free(void  **array)
+void	ft_array_free(void **array)
 {
 	int	len;
 	int	i;
