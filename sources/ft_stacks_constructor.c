@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:48:45 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 20:52:17 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:10:40 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ t_node	*ft_create_node(int numb)
 	return (elem);
 }
 
-void	ft_nodeadd_back(t_node **lst, t_node *new)
+void	ft_nodeadd_back(t_node **lst, t_node *new_node)
 {
 	t_node	*tmp;
 
 	tmp = *lst;
-	if (!new)
+	if (!new_node)
 		return ;
 	if (!*lst)
-		*lst = new;
+		*lst = new_node;
 	else
 	{
 		while (tmp->next)
 			tmp = tmp->next;
-		tmp->next = new;
+		tmp->next = new_node;
 	}
 }
 

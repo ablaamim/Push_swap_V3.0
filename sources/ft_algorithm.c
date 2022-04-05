@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_algorithm.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 14:28:28 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/05 14:17:50 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/04/05 14:18:01 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/04/05 14:26:10 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+bool	ft_sorted(t_stacks *stacks)
 {
-	char		**splited_args;
-	t_stacks	stacks;
+	return (true);
+}
 
-	splited_args = ft_args_unified(argc, argv);
-	ft_arguments_validator(argc, splited_args);
-	ft_stacks_constructor(splited_args, &stacks);
-	ft_array_free((void **) splited_args);
-	ft_algorithm(&stacks);
-	ft_clear_stacks(&stacks);
-	return (EXIT_SUCCESS);
+void	ft_algorithm(t_stacks *stacks)
+{
+	if (ft_sorted(stacks))
+		return ;
 }

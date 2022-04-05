@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 20:31:54 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/05 14:24:02 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ bool	ft_parser(char **argv);
  * Linked list util functions
 */
 t_node	*ft_create_node(int numb);
+void	ft_nodeadd_back(t_node **lst, t_node *new_node);
 
 /*
  * Stack util functions
@@ -59,6 +60,13 @@ t_node	*ft_create_node(int numb);
 void	ft_stacks_constructor(char **argv, t_stacks *stacks);
 void	exit_program(t_stacks *stacks);
 void	print_stacks(t_stacks stacks);
+void	ft_clear_stacks(t_stacks *stacks);
+
+/*
+ * Algorithm
+*/
+void	ft_algorithm(t_stacks *stacks);
+bool	ft_sorted(t_stacks *stacks);
 
 /*
  * Libft utils
