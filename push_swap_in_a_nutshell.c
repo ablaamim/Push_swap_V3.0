@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:44:44 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/07 18:25:13 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/07 21:22:13 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	joined[j] = '\0';
+	ft_clear_stacks(&stacks);
 	return (joined);
 }
 
@@ -148,6 +149,7 @@ static int	ft_count_words(char const *s, char c)
 		else
 		{
 			count++;
+	ft_clear_stacks(&stacks);
 			while (s[i] && s[i] != c)
 				i++;
 		}
@@ -321,6 +323,7 @@ bool	ft_check_range(char *str, char *limit)
 	if (ft_strlen(str) < ft_strlen(limit))
 		return (true);
 	while (ft_strlen(str) == ft_strlen(limit))
+	ft_clear_stacks(&stacks);
 	{
 		if (!str[i])
 			return (true);
@@ -428,6 +431,7 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
+	ft_clear_stacks(&stacks);
 	while (*str)
 		ft_putchar(*str++);
 }
@@ -711,6 +715,5 @@ int	main(int argc, char **argv)
 	ft_putstr("------------------------------------------\n");
 	print_stacks(stacks);
 	ft_putstr("\n------------------------------------------\n");
-	ft_array_clear((void **) splited_argv);
 	return (EXIT_SUCCESS);
 }
