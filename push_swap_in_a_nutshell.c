@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:44:44 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 20:28:58 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/07 18:25:13 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -711,5 +711,6 @@ int	main(int argc, char **argv)
 	ft_putstr("------------------------------------------\n");
 	print_stacks(stacks);
 	ft_putstr("\n------------------------------------------\n");
+	ft_array_clear((void **) splited_argv);
 	return (EXIT_SUCCESS);
 }
