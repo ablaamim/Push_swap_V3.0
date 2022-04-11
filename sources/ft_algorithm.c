@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:18:01 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/07 21:19:03 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/11 16:40:11 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static bool	empty_stack(t_stack *stack)
 
 bool	ft_sorted(t_stacks *stacks)
 {
-	if (sorted_stack(&stacks->a) || empty_stack(&stacks->b))
+	if (sorted_stack(&stacks->a) && empty_stack(&stacks->b))
 		return (true);
 	return (false);
 }
@@ -46,4 +46,6 @@ void	ft_algorithm(t_stacks *stacks)
 {
 	if (ft_sorted(stacks))
 		return ;
+	if (stacks->a.size == 2)
+		ft_sort_list_of_two(stacks);
 }

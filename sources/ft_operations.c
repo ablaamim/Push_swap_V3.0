@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_operations.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 14:28:28 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 16:35:02 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/04/11 16:14:30 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/04/11 16:17:14 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+bool	ft_operations(char *op, t_stacks *stacks)
 {
-	char		**splited_args;
-	t_stacks	stacks;
+	bool	valid;
 
-	splited_args = ft_args_unified(argc, argv);
-	ft_arguments_validator(argc, splited_args);
-	ft_stacks_constructor(splited_args, &stacks);
-	ft_array_free((void **) splited_args);
-	ft_algorithm(&stacks);
-	return (EXIT_SUCCESS);
+	valid = false;
+	if (!ft_strcmp(op, "sa"))
+		valid = ft_swap(&stacks->a);
+	return (valid);
 }

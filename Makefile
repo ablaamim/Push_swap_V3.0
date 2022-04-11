@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/07 21:19:28 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/11 16:32:26 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,10 @@ SRC = ./sources/main.c \
 	  ./sources/ft_printf.c \
 	  ./sources/debug.c \
 	  ./sources/ft_stacks_constructor.c \
-	  ./sources/ft_algorithm.c
+	  ./sources/ft_algorithm.c \
+	  ./sources/ft_operations.c \
+	  ./sources/ft_swap.c \
+	  ./sources/ft_small_list_sort.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 

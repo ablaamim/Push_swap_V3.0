@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:44:44 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/07 21:22:13 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:00:03 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		i++;
 	}
 	joined[j] = '\0';
-	ft_clear_stacks(&stacks);
 	return (joined);
 }
 
@@ -149,7 +148,6 @@ static int	ft_count_words(char const *s, char c)
 		else
 		{
 			count++;
-	ft_clear_stacks(&stacks);
 			while (s[i] && s[i] != c)
 				i++;
 		}
@@ -265,6 +263,7 @@ char	**ft_args_unified(int argc, char **argv)
 
 void	ft_array_clear(void **array)
 {
+
 	int	len;
 	int	i;
 
@@ -323,7 +322,6 @@ bool	ft_check_range(char *str, char *limit)
 	if (ft_strlen(str) < ft_strlen(limit))
 		return (true);
 	while (ft_strlen(str) == ft_strlen(limit))
-	ft_clear_stacks(&stacks);
 	{
 		if (!str[i])
 			return (true);
@@ -431,7 +429,6 @@ void	ft_putchar(char c)
 
 void	ft_putstr(char *str)
 {
-	ft_clear_stacks(&stacks);
 	while (*str)
 		ft_putchar(*str++);
 }
@@ -695,6 +692,112 @@ void	print_stacks(t_stacks stacks)
 	ft_printf("\t_\t_\n\ta\tb\n> ");
 }
 
+
+bool	sorted_stack(t_stack *stack)
+{
+	t_node	*tmp;
+
+	if (!stack || !stack->head)
+		return (false);
+	tmp = stack->head;
+	while (tmp->next)
+	{
+		if (tmp->nbr > ((t_node *) (tmp->next))->nbr)
+			return (false);
+		tmp = tmp->next;;
+	}
+	return (true);
+}
+
+bool	empty_stack(t_stack *stack)
+{
+	if (stack->size == 0 && !stack->head)
+		return (true);
+	return (false);
+}
+
+bool	ft_sorted(t_stacks *stacks)
+{
+	if (sorted_stack(&stacks->a) && empty_stack(&stacks->b))
+	{
+		ft_printf("         Stack is already sorted\n");
+		return (true);
+	}
+	return (false);
+}
+
+bool	ft_swap(t_stack *stack)
+{
+	t_node	tmp;
+	t_node	*node;
+	t_node	*next_node;
+
+	if (stack->size < 2 || !(stack->head) || !((t_node *)(stack->head)->next))
+		return (true);
+	node = stack->head;
+	next_node = stack->head->next;
+	tmp.index = node->index;
+	tmp.nbr = node->nbr;
+	tmp.keep_a = node->keep_a;
+	node->index = next_node->index;
+	node->nbr = next_node->nbr;
+	node->keep_a = next_node->keep_a;
+	next_node->index = tmp.index;
+	next_node->nbr = tmp.nbr;
+	next_node->keep_a = tmp.keep_a;
+	return (true);
+}
+
+bool	ft_operations(char *operation, t_stacks *stacks)
+{
+	bool	valid;
+
+	valid = false;
+	if (!ft_strcmp(operation, "sa"))
+		valid = ft_swap(&stacks->a);
+	return (valid);
+}
+
+void	call_operation(char *operation, t_stacks *stacks)
+{
+	ft_operations(operation, stacks);
+	ft_printf("          You sorted 2 numbers\n");
+	ft_printf("Operation executed : ");
+	ft_printf("%s\n", operation);
+}
+
+void	ft_attribute_values(t_node *node, int *tab, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i < size)
+	{
+		tab[i] = node->nbr;
+		node = node->next;
+		i++;
+	}
+}
+
+void	ft_sort_list_of_two(t_stacks *stacks)
+{
+	int	numb[2];
+
+	if (!stacks)
+		return ;
+	ft_attribute_values(stacks->a.head, numb, 2);
+	if (numb[0] > numb[1])
+		call_operation("sa", stacks);
+}
+
+void	ft_algorithm(t_stacks *stacks)
+{
+	if (ft_sorted(stacks))
+		return ;
+	if (stacks->a.size == 2)
+		ft_sort_list_of_two(stacks);
+}
+
 int	main(int argc, char **argv)
 {
 	char		**splited_argv;
@@ -715,5 +818,7 @@ int	main(int argc, char **argv)
 	ft_putstr("------------------------------------------\n");
 	print_stacks(stacks);
 	ft_putstr("\n------------------------------------------\n");
+	ft_algorithm(&stacks);
+	ft_putstr("------------------------------------------\n");
 	return (EXIT_SUCCESS);
 }
