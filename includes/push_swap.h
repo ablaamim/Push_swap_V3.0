@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 16:30:53 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:42:03 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	ft_clear_stacks(t_stacks *stacks);
 void	ft_algorithm(t_stacks *stacks);
 bool	ft_sorted(t_stacks *stacks);
 void	ft_sort_list_of_two(t_stacks *stacks);
+void	ft_sort_list_of_three(t_stacks *stacks);
 
 /*
  * Operations
@@ -75,6 +76,9 @@ void	ft_sort_list_of_two(t_stacks *stacks);
 void	call_operation(char *operation, t_stacks *stacks);
 bool	ft_operations(char *op, t_stacks *stacks);
 bool	ft_swap(t_stack *stack);
+void	attribute_values(t_node *node, int *tab, int size);
+bool	ft_rotate(t_stack *stack);
+bool	ft_reverse_rotate(t_stack *stack);
 
 /*
  * Libft utils

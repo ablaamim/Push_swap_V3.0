@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/11 16:32:26 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/11 17:40:11 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,9 @@ SRC = ./sources/main.c \
 	  ./sources/ft_algorithm.c \
 	  ./sources/ft_operations.c \
 	  ./sources/ft_swap.c \
-	  ./sources/ft_small_list_sort.c
+	  ./sources/ft_small_list_sort.c \
+	  ./sources/ft_rotate.c \
+	  ./sources/ft_reverse_rotate.c \
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 

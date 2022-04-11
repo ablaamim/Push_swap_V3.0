@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:18:01 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 16:40:11 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/11 17:42:10 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,6 @@ void	ft_algorithm(t_stacks *stacks)
 		return ;
 	if (stacks->a.size == 2)
 		ft_sort_list_of_two(stacks);
+	else if (stacks->a.size == 3)
+		ft_sort_list_of_three(stacks);
 }
