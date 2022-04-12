@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/11 17:40:11 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/11 17:51:14 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,4 +54,4 @@ fclean:	clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

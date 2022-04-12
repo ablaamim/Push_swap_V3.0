@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/03 15:44:44 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 17:00:03 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:14:25 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -332,7 +332,6 @@ bool	ft_check_range(char *str, char *limit)
 	return (true);
 }
 
-
 bool	ft_is_min_max(char **argv)
 {
 	int		param;
@@ -351,7 +350,6 @@ bool	ft_is_min_max(char **argv)
 	}
 	return (true);
 }
-
 
 int	ft_atoi(char *str)
 {
@@ -748,20 +746,59 @@ bool	ft_swap(t_stack *stack)
 	return (true);
 }
 
+bool	ft_reverse_rotate(t_stack *stack)
+{
+	t_node	*to_move;
+	int		i;
+
+	if (stack->size < 2 || !stack->head)
+		return (true);
+	i = 0;
+	to_move = stack->head;
+	while (((t_node *)(to_move->next))->next)
+		to_move = to_move->next;
+	((t_node *)(to_move->next))->next = stack->head;
+	stack->head = to_move->next;
+	to_move->next = NULL;
+	return (true);
+}
+
+bool	ft_rotate(t_stack *stack)
+{
+	t_node	*to_move;
+
+	if (stack->size < 2 || !stack->head)
+		return (true);
+	to_move = stack->head;
+	stack->head = stack->head->next;
+	to_move->next = NULL;
+	ft_nodeadd_back(&stack->head, to_move);
+	return (true);
+}
+
 bool	ft_operations(char *operation, t_stacks *stacks)
 {
 	bool	valid;
 
 	valid = false;
-	if (!ft_strcmp(operation, "sa"))
+	if (!ft_strcmp(operation, "sa") || !ft_strcmp(operation, "ss"))
 		valid = ft_swap(&stacks->a);
+	if (!ft_strcmp(operation, "sb") || !ft_strcmp(operation, "ss"))
+		valid = ft_swap(&stacks->b);
+	if (!ft_strcmp(operation, "ra") || !ft_strcmp(operation, "rr"))
+		valid = ft_rotate(&stacks->a);
+	if (!ft_strcmp(operation, "rb") || !ft_strcmp(operation, "rr"))
+		valid = ft_rotate(&stacks->b);
+	if (!ft_strcmp(operation, "rra") || !ft_strcmp(operation, "rrr"))
+		valid = ft_reverse_rotate(&stacks->a);
+	if (!ft_strcmp(operation, "rrb") || !ft_strcmp(operation, "rrb"))
+		valid = ft_reverse_rotate(&stacks->b);
 	return (valid);
 }
 
 void	call_operation(char *operation, t_stacks *stacks)
 {
 	ft_operations(operation, stacks);
-	ft_printf("          You sorted 2 numbers\n");
 	ft_printf("Operation executed : ");
 	ft_printf("%s\n", operation);
 }
@@ -790,12 +827,39 @@ void	ft_sort_list_of_two(t_stacks *stacks)
 		call_operation("sa", stacks);
 }
 
+void	ft_sort_list_of_three(t_stacks *stacks)
+{
+	int	numb[3];
+
+	if (!stacks || stacks->a.size < 3)
+		return ;
+	ft_attribute_values(stacks->a.head, numb, 3);
+	if (numb[0] < numb[1] && numb[1] > numb[2] && numb[0] < numb[2])
+	{
+		call_operation("sa", stacks);
+		call_operation("ra", stacks);
+	}
+	else if (numb[0] > numb[1] && numb[1] < numb[2] && numb[0] < numb[2])
+		call_operation("sa", stacks);
+	else if (numb[0] > numb[1] && numb[1] < numb[2] && numb[0] > numb[1])
+		call_operation("ra", stacks);
+	else if (numb[0] > numb[1] && numb[1] > numb[2] && numb[0] > numb[2])
+	{
+		call_operation("sa", stacks);
+		call_operation("rra", stacks);
+	}
+	else if (numb[0] < numb[1] && numb[1] > numb[2] && numb[0] > numb[2])
+		call_operation("rra", stacks);
+}
+
 void	ft_algorithm(t_stacks *stacks)
 {
 	if (ft_sorted(stacks))
 		return ;
 	if (stacks->a.size == 2)
 		ft_sort_list_of_two(stacks);
+	else if (stacks->a.size == 3)
+		ft_sort_list_of_three(stacks);
 }
 
 int	main(int argc, char **argv)
@@ -819,6 +883,9 @@ int	main(int argc, char **argv)
 	print_stacks(stacks);
 	ft_putstr("\n------------------------------------------\n");
 	ft_algorithm(&stacks);
+	ft_putstr("------------------------------------------\n");
+	ft_putstr("         Sorted stack :\n");
+	print_stacks(stacks);
 	ft_putstr("------------------------------------------\n");
 	return (EXIT_SUCCESS);
 }
