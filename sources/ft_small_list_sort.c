@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/10 17:41:22 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 17:43:46 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:30:56 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,29 @@ void	ft_sort_list_of_three(t_stacks *stacks)
 	}
 	else if (numb[0] < numb[1] && numb[1] > numb[2] && numb[0] > numb[2])
 		call_operation("rra", stacks);
+}
+
+void	ft_sort_list_of_five(t_stacks *stacks)
+{
+	size_t	n_plus;
+	int		min;
+	int		max;
+
+	if (!stacks || stacks->a.size < 4)
+		return ;
+	n_plus = stacks->a.size - 3;
+	min = get_min_value(stacks->a.head);
+	if (n_plus > 1)
+		max = get_max_value(stacks->a.head);
+	else
+		max = MAX_INT;
+	push_min_and_max_value_to_stack_b(stacks, min, max);
+	ft_sort_list_of_three(stacks);
+	while (n_plus)
+	{
+		call_operation("pa", stacks);
+		if (stacks->a.head->nbr == max)
+			call_operation("ra", stacks);
+		n_plus--;
+	}
 }

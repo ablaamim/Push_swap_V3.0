@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 14:28:28 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 17:59:26 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/04/13 17:40:12 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/04/13 17:40:41 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+bool	push(t_stack *to, t_stack *from)
 {
-	char		**splited_args;
-	t_stacks	stacks;
+	t_node	*to_move;
 
-	splited_args = ft_args_unified(argc, argv);
-	ft_arguments_validator(argc, splited_args);
-	ft_stacks_constructor(splited_args, &stacks);
-	ft_array_free((void **) splited_args);
-	print_stacks(stacks);
-	ft_algorithm(&stacks);
-	print_stacks(stacks);
-	return (EXIT_SUCCESS);
+	if (from->size < 1 || !from->head)
+		return (true);
+	to_move = from->head;
+	from->head = from->head->next;
+	to_move->next = NULL;
+	ft_nodeadd_front(&to->head, to_move);
+	to->size++;
+	from->size--;
+	return (true);
 }

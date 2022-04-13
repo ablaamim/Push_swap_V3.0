@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:48:45 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/05 14:10:40 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/12 16:27:54 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,27 @@ void	ft_nodeadd_back(t_node **lst, t_node *new_node)
 			tmp = tmp->next;
 		tmp->next = new_node;
 	}
+}
+
+t_node	*ft_nodelast(t_node *lst)
+{
+	t_node	*last;
+
+	if (!lst)
+		return (NULL);
+	last = lst;
+	while (last->next)
+		last = last->next;
+	return (last);
+}
+
+void	ft_nodeadd_front(t_node **lst, t_node *new_node)
+{
+	if (!new_node)
+		return ;
+	if (*lst)
+		new_node->next = *lst;
+	*lst = new_node;
 }
 
 void	ft_stacks_constructor(char	**argv, t_stacks *stacks)

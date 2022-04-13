@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_orthodox.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/02 14:28:28 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 17:59:26 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/04/13 17:23:42 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/04/13 17:42:29 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	main(int argc, char **argv)
+void	push_to_stack_b(t_stacks *stacks)
 {
-	char		**splited_args;
-	t_stacks	stacks;
+	int	init_size;
 
-	splited_args = ft_args_unified(argc, argv);
-	ft_arguments_validator(argc, splited_args);
-	ft_stacks_constructor(splited_args, &stacks);
-	ft_array_free((void **) splited_args);
-	print_stacks(stacks);
-	ft_algorithm(&stacks);
-	print_stacks(stacks);
-	return (EXIT_SUCCESS);
+	init_size = stacks->a.size;
+	while (init_size)
+	{
+		if ((t_stacks *)(stacks->a.head)->keep_a)
+			call_operation("ra", stacks);
+		else
+			call_operation("pb", stacks);
+		init_size--;
+	}
 }

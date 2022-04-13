@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:30:25 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/04 17:39:57 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/13 18:00:14 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	print_stacks(t_stacks stacks)
 		ft_printf("\n");
 		i++;
 	}
-	ft_printf("\t_\t_\n\ta\tb\n> ");
+	ft_printf("\t_\t_\n\ta\tb\n");
 }

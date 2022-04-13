@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 17:42:03 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:55:10 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 # include <stdbool.h>
 # include <stdarg.h>
 # define HEX "0123456789abcdef"
+# define MIN_INT -2147483648
+# define MAX_INT 2147483647
 
 typedef struct s_node
 {
 	int		nbr;
 	int		index;
-	int		keep_a;
+	bool	keep_a;
 	void	*next;
 }	t_node;
 
@@ -31,7 +33,7 @@ typedef struct s_stack
 {
 	t_node	*head;
 	int		size;
-	bool	markup_head;
+	int		markup_head;
 }	t_stack;
 
 typedef struct s_stacks
@@ -53,6 +55,8 @@ bool	ft_parser(char **argv);
 */
 t_node	*ft_create_node(int numb);
 void	ft_nodeadd_back(t_node **lst, t_node *new_node);
+t_node	*ft_nodelast(t_node *lst);
+void	ft_nodeadd_front(t_node **lst, t_node *new_node);
 
 /*
  * Stack util functions
@@ -69,6 +73,18 @@ void	ft_algorithm(t_stacks *stacks);
 bool	ft_sorted(t_stacks *stacks);
 void	ft_sort_list_of_two(t_stacks *stacks);
 void	ft_sort_list_of_three(t_stacks *stacks);
+void	ft_sort_list_of_five(t_stacks *stacks);
+void	ft_markup_elements(t_stack *a);
+void	ft_find_markup(t_stack *a);
+int		nodes_to_keep_a(t_stack *a, int markup_head, bool def);
+void	push_to_stack_b(t_stacks *stacks);
+/*
+ * Min/Max utils
+*/
+void	push_min_and_max_value_to_stack_b(t_stacks *stacks, int min, int max);
+int		min_value(int n1, int n2);
+int		get_min_value(t_node *tmp);
+int		get_max_value(t_node *tmp);
 
 /*
  * Operations
@@ -79,6 +95,7 @@ bool	ft_swap(t_stack *stack);
 void	attribute_values(t_node *node, int *tab, int size);
 bool	ft_rotate(t_stack *stack);
 bool	ft_reverse_rotate(t_stack *stack);
+bool	push(t_stack *to, t_stack *from);
 
 /*
  * Libft utils

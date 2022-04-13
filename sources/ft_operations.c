@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 16:14:30 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/11 17:34:33 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/13 17:46:52 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ bool	ft_operations(char *op, t_stacks *stacks)
 		valid = ft_reverse_rotate(&stacks->a);
 	if (!ft_strcmp(op, "rrb") || !ft_strcmp(op, "rrr"))
 		valid = ft_reverse_rotate(&stacks->b);
+	if (!ft_strcmp(op, "pb"))
+		valid = push(&stacks->b, &stacks->a);
+	if (!ft_strcmp(op, "pa"))
+		valid = push(&stacks->a, &stacks->b);
 	return (valid);
 }
