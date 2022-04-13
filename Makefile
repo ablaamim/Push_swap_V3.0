@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/13 17:44:39 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/13 21:12:41 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ SRC = ./sources/main.c \
 	  ./sources/ft_min_max_utils.c \
 	  ./sources/ft_markup_elements.c \
 	  ./sources/ft_orthodox.c \
-	  ./sources/push.c
+	  ./sources/push.c \
+	  ./sources/ft_optimize.c
 
 OBJ = $(patsubst %.c,%.o,$(SRC))
 

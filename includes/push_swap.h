@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 17:55:10 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/13 20:00:07 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ typedef struct s_stack
 {
 	t_node	*head;
 	int		size;
-	int		markup_head;
+	bool	markup_head;
 }	t_stack;
 
 typedef struct s_stacks
@@ -41,6 +41,28 @@ typedef struct s_stacks
 	t_stack	a;
 	t_stack	b;
 }	t_stacks;
+
+/*
+ * Orthodoxian sort, store infos about stacks
+*/
+
+typedef struct s_infos
+{
+	char	op[4];
+	bool	top;
+	int		n_op;
+	int		ind;
+	int		size;
+}	t_infos;
+
+typedef struct s_actions
+{
+	t_infos	a;
+	t_infos	b;
+	int		total;
+	char	op_same[4];
+	int		n_op_same;
+}	t_actions;
 
 /*
  * Parsing functions
@@ -78,6 +100,10 @@ void	ft_markup_elements(t_stack *a);
 void	ft_find_markup(t_stack *a);
 int		nodes_to_keep_a(t_stack *a, int markup_head, bool def);
 void	push_to_stack_b(t_stacks *stacks);
+void	push_to_stack_a(t_stacks *stacks);
+void	exit_push_swap(t_stacks *stacks);
+void	optimize_actions(t_stacks *stacks, t_actions *def);
+
 /*
  * Min/Max utils
 */
