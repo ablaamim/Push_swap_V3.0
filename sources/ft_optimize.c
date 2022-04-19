@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 19:37:09 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 21:11:12 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 09:04:37 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,15 @@ void	calculate_number_op_stack(t_infos *info)
 	}
 }
 
+void	get_total_of_operations(t_actions *tmp, t_actions *def)
+{
+	tmp->total = tmp->a.n_op + tmp->b.n_op;
+	if (!(tmp->a.top ^ tmp->b.top))
+		tmp->total -= min_value(tmp->a.n_op, tmp->b.n_op);
+	if (tmp->total < def->total)
+		ft_memmove(def, tmp, sizeof(t_actions));
+}
+
 void	actions_in_stack_a(t_actions *tmp, t_actions *def, t_stacks *stacks,
 		int value)
 {
@@ -37,10 +46,21 @@ void	actions_in_stack_a(t_actions *tmp, t_actions *def, t_stacks *stacks,
 	head = stacks->a.head;
 	previous = ft_nodelast(head);
 	max = get_max_value(head);
-	
+	while (head)
+	{
+		if ((head->nbr > value && previous->nbr < value)
+			|| (head->nbr > value && previous->nbr == max)
+			|| (head->nbr < value && (previous->nbr == max && value > max)))
+			break ;
+		previous = head;
+		head = head->next;
+		(tmp->a.ind)++;
+	}
+	calculate_number_op_stack(&tmp->a);
+	get_total_of_operations(tmp, def);
 }
 
-void	ft_optimize(t_stacks *stacks, t_actions *def)
+void	ft_optimize_actions_to_push_to_a(t_stacks *stacks, t_actions *def)
 {
 	t_actions	tmp;
 	t_node		*tmp_b;

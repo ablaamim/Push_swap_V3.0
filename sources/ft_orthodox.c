@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 17:23:42 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 18:43:22 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 12:03:06 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,17 @@ void	exit_push_swap(t_stacks *stacks)
 void	push_to_stack_a(t_stacks *stacks)
 {
 	t_actions	*def;
+
 	def = NULL;
 	def = ft_calloc(1, sizeof(t_actions));
 	if (!def)
 		exit_push_swap(stacks);
 	while (stacks->b.head != NULL)
 	{
-		optimize_actions(stacks, def);
+		ft_optimize_actions_to_push_to_a(stacks, def);
+		ft_attribute_operations(def);
+		ft_operate_actions(stacks, def);
+		ft_bzero(def, sizeof(t_actions));
 	}
 	free(def);
 }

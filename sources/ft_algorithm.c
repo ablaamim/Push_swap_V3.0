@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/05 14:18:01 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 21:13:26 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 08:50:43 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void	ft_algorithm(t_stacks *stacks)
 		ft_markup_elements(&stacks->a);
 		push_to_stack_b(stacks);
 		push_to_stack_a(stacks);
+		ft_regularize_stack_a(stacks);
 	}
 }

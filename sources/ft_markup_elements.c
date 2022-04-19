@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/13 16:49:41 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 18:12:27 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:38:58 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void	ft_find_markup(t_stack *a)
 
 void	ft_markup_elements(t_stack *a)
 {
-	int	useless;
+	int	num_keep_a;
 
 	ft_find_markup(a);
-	useless = nodes_to_keep_a(a, a->markup_head, true);
+	num_keep_a = nodes_to_keep_a(a, a->markup_head, true);
 }

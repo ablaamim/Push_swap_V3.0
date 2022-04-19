@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:28:28 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 17:59:26 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:30:08 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	main(int argc, char **argv)
 	ft_arguments_validator(argc, splited_args);
 	ft_stacks_constructor(splited_args, &stacks);
 	ft_array_free((void **) splited_args);
-	print_stacks(stacks);
 	ft_algorithm(&stacks);
-	print_stacks(stacks);
+	ft_clear_stacks(&stacks);
 	return (EXIT_SUCCESS);
 }

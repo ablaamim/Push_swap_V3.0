@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 20:00:07 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 11:40:15 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # define HEX "0123456789abcdef"
 # define MIN_INT -2147483648
 # define MAX_INT 2147483647
+# define BUFFER_SIZE 1024
+# define OPEN_MAX 1024
 
 typedef struct s_node
 {
@@ -33,7 +35,7 @@ typedef struct s_stack
 {
 	t_node	*head;
 	int		size;
-	bool	markup_head;
+	int		markup_head;
 }	t_stack;
 
 typedef struct s_stacks
@@ -85,8 +87,9 @@ void	ft_nodeadd_front(t_node **lst, t_node *new_node);
 */
 void	ft_stacks_constructor(char **argv, t_stacks *stacks);
 void	exit_program(t_stacks *stacks);
-void	print_stacks(t_stacks stacks);
 void	ft_clear_stacks(t_stacks *stacks);
+void	ft_stack_free(t_node **lst, int size);
+void	print_stacks(t_stacks stacks);
 
 /*
  * Algorithm
@@ -102,7 +105,10 @@ int		nodes_to_keep_a(t_stack *a, int markup_head, bool def);
 void	push_to_stack_b(t_stacks *stacks);
 void	push_to_stack_a(t_stacks *stacks);
 void	exit_push_swap(t_stacks *stacks);
-void	optimize_actions(t_stacks *stacks, t_actions *def);
+void	ft_optimize_actions_to_push_to_a(t_stacks *stacks, t_actions *def);
+void	ft_attribute_operations(t_actions *def);
+void	ft_operate_actions(t_stacks *stacks, t_actions *def);
+void	ft_regularize_stack_a(t_stacks *stacks);
 
 /*
  * Min/Max utils
@@ -126,6 +132,7 @@ bool	push(t_stack *to, t_stack *from);
 /*
  * Libft utils
 */
+int		get_next_line(int fd, char **line);
 int		ft_printf(const char *fmt, ...);
 char	*ft_strdup(char *str);
 int		ft_strlen(char *str);
@@ -142,5 +149,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t len);
 void	*ft_memset(void *s, int c, size_t n);
+char	*ft_substr(char *s, int start, size_t len);
 
 #endif

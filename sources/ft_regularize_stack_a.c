@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   exit.c                                             :+:      :+:    :+:   */
+/*   regulatize_stack.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/04 17:07:00 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/19 09:21:42 by ablaamim         ###   ########.fr       */
+/*   Created: 2022/04/19 08:45:29 by ablaamim          #+#    #+#             */
+/*   Updated: 2022/04/19 08:51:51 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_stack_free(t_node **lst, int size)
+void	ft_regularize_stack_a(t_stacks *stacks)
 {
-	t_node	*to_free;
+	int		min;
 	int		i;
+	t_node	*tmp;
+	char	*op;
 
-	to_free = *lst;
-	if (!lst || *lst)
-		return ;
-	i = 0x0;
-	while (i < size)
+	i = 0;
+	tmp = stacks->a.head;
+	min = get_min_value(tmp);
+	while (tmp->nbr != min)
 	{
-		*lst = to_free->next;
-		free(to_free);
-		to_free = *lst;
+		tmp = tmp->next;
 		i++;
 	}
-	*lst = NULL;
-}
-
-void	ft_clear_stacks(t_stacks *stacks)
-{
-	ft_stack_free(&stacks->a.head, stacks->a.size);
-	ft_stack_free(&stacks->b.head, stacks->b.size);
-}
-
-void	exit_program(t_stacks *stacks)
-{
-	write(2, "Error\n", 6);
-	ft_clear_stacks(stacks);
-	exit(EXIT_FAILURE);
+	if (i < (stacks->a.size / 2))
+		op = "ra";
+	else
+		op = "rra";
+	while (stacks->a.head->nbr != min)
+		call_operation(op, stacks);
 }
