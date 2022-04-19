@@ -6,7 +6,7 @@
 #    By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/03 15:08:35 by ablaamim          #+#    #+#              #
-#    Updated: 2022/04/19 11:53:53 by ablaamim         ###   ########.fr        #
+#    Updated: 2022/04/19 12:04:26 by ablaamim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,10 +88,10 @@ $(NAME_B) : $(OBJ_B)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) 
+	$(RM) $(OBJ) $(OBJ_B)
 
 fclean:	clean
-	$(RM) push_swap
+	$(RM) push_swap checker
 
 re: fclean all
 
