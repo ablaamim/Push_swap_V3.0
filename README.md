@@ -57,3 +57,7 @@
 Errors include for example: some arguments are not integers, some arguments are bigger than an integer, there are duplicates, an instruction don’t exist and/or is incorrectly formatted.
 
 # Final Score :
+
+<div align=center>
+<img src="https://github.com/ablaamim/Push_swap_V3.0/blob/master/img/score_125.png"/>
+</div>
