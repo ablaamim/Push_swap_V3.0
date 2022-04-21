@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/02 14:26:35 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/19 11:40:15 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 18:04:08 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ void	ft_optimize_actions_to_push_to_a(t_stacks *stacks, t_actions *def);
 void	ft_attribute_operations(t_actions *def);
 void	ft_operate_actions(t_stacks *stacks, t_actions *def);
 void	ft_regularize_stack_a(t_stacks *stacks);
+void	ft_steps_debuger(t_actions *def);
 
 /*
  * Min/Max utils

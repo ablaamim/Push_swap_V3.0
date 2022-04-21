@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 11:09:48 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/19 11:48:30 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 14:30:56 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ static void	read_and_execute_commands(t_stacks *stacks, bool verbose)
 		if (!valid_op)
 			exit_program(stacks);
 		if (verbose)
+		{
+			ft_printf("------------------\nOP : %s\n------------------\n", op);
 			print_stacks(*stacks);
+		}
 	}
 	free(op);
 }

@@ -6,7 +6,7 @@
 /*   By: ablaamim <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 17:30:25 by ablaamim          #+#    #+#             */
-/*   Updated: 2022/04/13 18:00:14 by ablaamim         ###   ########.fr       */
+/*   Updated: 2022/04/19 17:22:46 by ablaamim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	print_stacks(t_stacks stacks)
 	int	i;
 
 	i = 0;
-	ft_printf("\nsize:\t%d\t%d\n-----\nstack:", stacks.a.size, stacks.b.size);
+	ft_printf("\nsize:\t%d\t%d\n\nstack:", stacks.a.size, stacks.b.size);
 	while (i < stacks.a.size || i < stacks.b.size)
 	{
 		if (i < stacks.a.size)
